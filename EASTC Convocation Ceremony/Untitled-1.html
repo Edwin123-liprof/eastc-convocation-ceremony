@@ -1,0 +1,239 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EASTC Convocation Ceremony</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>EASTC Convocation Ceremony</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#speakers">Speakers</a></li>
+            <li><a href="#logistics">Logistics</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#attendance">Attendance</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="overview">
+            <h2>Event Overview</h2>
+            <p>The EASTC convocation ceremony is a significant event held annually the day before graduation.</p>
+        </section>
+
+        <section id="schedule">
+            <h2>Schedule</h2>
+            <ul>
+                <li>10:00 AM - Opening Remarks</li>
+                <li>10:30 AM - Keynote Address</li>
+                <li>11:30 AM - Awarding of Degrees</li>
+                <li>12:30 PM - Reception</li>
+            </ul>
+        </section>
+
+        <section id="speakers">
+            <h2>Speakers</h2>
+            <p>Details about keynote speakers and other important figures.</p>
+        </section>
+
+        <section id="logistics">
+            <h2>Logistics</h2>
+            <p>Venue details, parking information, and more.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>For more details, contact the Dean of Students at dean@eastc.edu.</p>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>Photos from past ceremonies.</p>
+        </section>
+
+        <section id="attendance">
+            <h2>Attendance</h2>
+            <form id="attendanceForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="position">Position:</label>
+                <input type="text" id="position" name="position" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+            
+            <h3>Attendance List</h3>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Attendee details will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EASTC. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+### CSS (styles.css)
+
+```css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #444;
+    overflow: hidden;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    display: inline-block;
+}
+
+main {
+    padding: 2rem;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+form button {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+```
+
+### JavaScript (script.js)
+
+```javascript
+document.getElementById('attendanceForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const position = document.getElementById('position').value;
+
+    const table = document.getElementById('attendanceTable').getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
+
+    const nameCell = newRow.insertCell(0);
+    const phoneCell = newRow.insertCell(1);
+    const emailCell = newRow.insertCell(2);
+    const positionCell = newRow.insertCell(3);
+
+    nameCell.textContent = name;
+    phoneCell.textContent = phone;
+    emailCell.textContent = email;
+    positionCell.textContent = position;
+
+    document.getElementById('attendanceForm').reset();
+});
+```
